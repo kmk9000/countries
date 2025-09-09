@@ -1,19 +1,23 @@
 import { useState } from "react";
 import "./App.css";
-import Filter from "./components/Filter";
+import Search from "./components/Search";
 import Display from "./components/Display";
+import axios from "axios";
 
 function App() {
-  const [filter, setFilter] = useState("");
+  // search bar
+  const [search, setSearch] = useState("");
 
-  const handleFilterChange = (event) => {
+  const handleSearchChange = (event) => {
     console.log(event.target.value);
-    setFilter(event.target.value);
+    setSearch(event.target.value);
   };
+
+  // fetch data
 
   return (
     <>
-      <Filter filter={filter} handleFilterChange={handleFilterChange} />
+      <Search search={search} handleSearchChange={handleSearchChange} />
       <Display />
     </>
   );
