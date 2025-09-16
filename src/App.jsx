@@ -14,17 +14,26 @@ function App() {
   };
 
   // fetch data
-  const [countries, setFilteredCountries] = useState([]);
+  const [countries, setCountries] = useState([]);
+  const [filteredCountries, setFilteredCountries] = useState([]);
 
-  const filtered = countries.filter((country) =>
-    country.name.common.toLowerCase().includes(search.toLowerCase())
-  );
+  // const filtered = countries.filter((country) =>
+  //   country.name.common.toLowerCase().includes(search.toLowerCase())
+  // );
+
+  useEffect(() => {
+    setFilteredCountries(
+      countries.filter((country) =>
+        country.name.common.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+  }, [search]);
 
   useEffect(() => {
     axios
       .get("https://studies.cs.helsinki.fi/restcountries/api/all")
       .then((response) => {
-        setFilteredCountries(response.data);
+        setCountries(response.data);
       })
       .catch((error) => {
         console.error("Error fetching countries:", error);
@@ -34,7 +43,7 @@ function App() {
   return (
     <>
       <Search search={search} handleSearchChange={handleSearchChange} />
-      <Display countries={filtered} />
+      <Display countries={filteredCountries} />
     </>
   );
 }

@@ -15,16 +15,17 @@ const Display = ({ countries }) => {
   }
   if (countries.length === 1) {
     const country = countries[0];
+
     return (
       <>
-        <img src={country.flags.png} />
+        <img src={country.flags.svg} style={{ width: "150px" }} />
         <h2>{country.name.common}</h2>
-        {/* <h3>Languages</h3>
+        <h3>Languages</h3>
         <ul>
-          {countries.map((country) => (
-            <li key={country.name}>{country.languages}</li>
+          {Object.keys(country.languages).map((key) => (
+            <li key={key}>{country.languages[key]}</li>
           ))}
-        </ul> */}
+        </ul>
       </>
     );
   }
