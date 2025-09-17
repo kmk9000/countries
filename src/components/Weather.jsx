@@ -6,10 +6,6 @@ const Weather = ({ capital }) => {
   const [weather, setWeather] = useState(null);
   const apiKey = import.meta.env.VITE_OPENWEATHER_KEY;
 
-  console.log("Weather component mounted");
-  console.log("Capital prop:", capital);
-  console.log("API key:", apiKey);
-
   useEffect(() => {
     if (!capital) return;
     axios
