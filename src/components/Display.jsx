@@ -1,7 +1,6 @@
 import React from "react";
 import CountryDetails from "./CountryDetails";
 const Display = ({ countries, selectedCountry, setSelectedCountry }) => {
-  console.log(countries);
   if (countries.length > 10) {
     return <>Too many matches ({countries.length})</>;
   }

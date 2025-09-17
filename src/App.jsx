@@ -17,10 +17,6 @@ function App() {
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
 
-  // const filtered = countries.filter((country) =>
-  //   country.name.common.toLowerCase().includes(search.toLowerCase())
-  // );
-
   useEffect(() => {
     setFilteredCountries(
       countries.filter((country) =>
