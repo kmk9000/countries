@@ -1,4 +1,5 @@
 import React from "react";
+import CountryDetails from "./CountryDetails";
 const Display = ({ countries, selectedCountry, setSelectedCountry }) => {
   console.log(countries);
   if (countries.length > 10) {
@@ -25,23 +26,6 @@ const Display = ({ countries, selectedCountry, setSelectedCountry }) => {
     return <CountryDetails country={countries[0]} />;
   }
   return null;
-};
-
-const CountryDetails = ({ country }) => {
-  return (
-    <>
-      <h2>{country.name.common}</h2>
-      <p>Capital: {country.capital}</p>
-      <p>Area Code: {country.area}</p>
-      <h3>Languages</h3>
-      <ul>
-        {Object.keys(country.languages).map((key) => (
-          <li key={key}>{country.languages[key]}</li>
-        ))}
-      </ul>
-      <img src={country.flags.svg} style={{ width: "150px" }} />
-    </>
-  );
 };
 
 export default Display;
