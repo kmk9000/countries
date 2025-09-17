@@ -16,6 +16,7 @@ function App() {
   // fetch data
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState(null);
 
   // const filtered = countries.filter((country) =>
   //   country.name.common.toLowerCase().includes(search.toLowerCase())
@@ -43,7 +44,11 @@ function App() {
   return (
     <>
       <Search search={search} handleSearchChange={handleSearchChange} />
-      <Display countries={filteredCountries} />
+      <Display
+        countries={filteredCountries}
+        selectedCountry={selectedCountry}
+        setSelectedCountry={setSelectedCountry}
+      />
     </>
   );
 }
